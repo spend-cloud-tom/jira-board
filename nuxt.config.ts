@@ -1,8 +1,8 @@
-import process from "process"
+import process from 'node:process'
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["nuxt-api-party"],
+  modules: ['nuxt-api-party'],
 
   runtimeConfig: {
     apiParty: {
@@ -11,9 +11,9 @@ export default defineNuxtConfig({
           url: 'https://apijira.visma.com/rest',
           headers: {
             Authorization: `Basic ${process.env.NUXT_API_PARTY_AUTHORIZATION_BASIC!}`,
-          }
-        }
-      }
-    }
+          },
+        },
+      },
+    },
   },
 })
