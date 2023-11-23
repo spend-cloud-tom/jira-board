@@ -1,4 +1,19 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import process from "process"
+
 export default defineNuxtConfig({
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+  modules: ["nuxt-api-party"],
+
+  runtimeConfig: {
+    apiParty: {
+      endpoints: {
+        jira: {
+          url: 'https://apijira.visma.com/rest',
+          headers: {
+            Authorization: `Basic ${process.env.NUXT_API_PARTY_AUTHORIZATION_BASIC!}`,
+          }
+        }
+      }
+    }
+  },
 })
