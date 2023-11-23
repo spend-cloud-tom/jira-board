@@ -13,9 +13,11 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.1.0",
+    "@hebilicious/vue-query-nuxt": "latest",
+    "@invictus.codes/nuxt-vuetify": "latest",
     "@nuxt/devtools": "latest",
     "eslint": "^8.54.0",
-    "nuxt": "^3.8.1",
+    "nuxt": "^3.8.2",
     "nuxt-api-party": "latest",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
