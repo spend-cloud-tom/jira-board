@@ -36,6 +36,7 @@ header {
 
 h3 {
   font-size: 13px;
+  text-wrap: balance;
 }
 
 header .extras {

@@ -1,5 +1,13 @@
 <script setup lang="ts">
-const { items, fetchNextPage } = useBoardsQuery()
+const searchQuery = ref('')
+
+const { items } = useBoardsQuery()
+
+const itemsComputed = computed(() => {
+  if (!searchQuery.value)
+    return items.value
+  return items.value.filter(item => item.name.toLowerCase().includes(searchQuery.value.toLowerCase()))
+})
 </script>
 
 <template>
@@ -7,11 +15,12 @@ const { items, fetchNextPage } = useBoardsQuery()
     <header>
       <h2>Boards</h2>
     </header>
-    <nuxt-page>
-      <main>
-        <board-overview-item v-for="(item, index) in items" :key="`item-${index}`" :item="item" :width="200" />
-      </main>
-    </nuxt-page>
+    <main>
+      <v-toolbar>
+        <v-text-field v-model="searchQuery" placeholder="Search" label="Search" />
+      </v-toolbar>
+      <board-overview-item v-for="(item, index) in itemsComputed" :key="`item-${index}`" :item="item" :width="200" />
+    </main>
   </section>
 </template>
 
